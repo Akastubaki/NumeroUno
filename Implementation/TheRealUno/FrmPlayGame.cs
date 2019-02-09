@@ -19,6 +19,8 @@ namespace TheRealUno {
     private List<PictureBox> playerPics;
     private Stack<Card> discard;
     private PlayerType playerTurn;
+    private Random getRandom = new Random();
+    private int n;
 
     public FrmPlayGame() {
       InitializeComponent();
@@ -106,7 +108,20 @@ namespace TheRealUno {
           return;
         }
       }
-      pbDeck_Click(null, null);
+      if (cpu.NumCards == 1)        //cpu might say uno
+            {
+                n = getRandomNumber(int 0, int 9);
+            if(n <= 7)              //generate random number 0 through 9
+                {                   //if it's less than 7 then the cpu calls uno
+                    cpu.setUnoCall();
+                }
+            }
+      if (cpu.NumCards == 0)        //Win condition
+            {
+                                    //end game, display "you lose" to player
+                                    // give option to play again or quit
+            }
+            pbDeck_Click(null, null);
     }
 
     private Image GetCardBgImg(Card card) {

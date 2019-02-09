@@ -11,6 +11,7 @@ namespace TheRealUno.code {
     private Deck deck;
     private List<Card> hand;
     private List<PictureBox> pics;
+    private bool uno_call;
 
     public int NumCards {
       get { return hand.Count; }
@@ -41,6 +42,11 @@ namespace TheRealUno.code {
 
     public void GiveCards(List<Card> givenCards) {
       hand.AddRange(givenCards);
+        uno_call = 0;
     }
-  }
+    public bool setUnoCall()
+        {
+            uno_call = 1;
+        }
+    }
 }
